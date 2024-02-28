@@ -13,12 +13,12 @@ module.exports = {
   langs: process.env.LANGS || "en",
   nodes: [
     {
-      host: process.env.NODE_HOST || "103.178.158.190",
+      host: process.env.NODE_HOST || "lavalink3.alfari.id",
       identifer: process.env.NODE_ID || "Main",
 
-      port: parseInt(process.env.NODE_PORT || "1181"),
-      password: process.env.NODE_PASSWORD || "shadow",
-      secure: parseBoolean(process.env.NODE_SECURE || "false"),
+      port: parseInt(process.env.NODE_PORT || "443"),
+      password: process.env.NODE_PASSWORD || "catfein",
+      secure: parseBoolean(process.env.NODE_SECURE || "true"),
     },
   ],
 };
