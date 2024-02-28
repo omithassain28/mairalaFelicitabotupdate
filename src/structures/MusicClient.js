@@ -119,24 +119,6 @@ class MusicBot extends Client {
  */
   const data = [];
        
-  readdirSync("./src/slashCommands/").forEach((dir) => {
-        const slashCommandFile = readdirSync(`./src/slashCommands/${dir}/`).filter((files) => files.endsWith(".js"));
-    
-        for (const file of slashCommandFile) {
-            const slashCommand = require(`../slashCommands/${dir}/${file}`);
-
-            if(!slashCommand.name) return console.error(`slashCommandNameError: ${slashCommand.split(".")[0]} application command name is required.`);
-
-            if(!slashCommand.description) return console.error(`slashCommandDescriptionError: ${slashCommand.split(".")[0]} application command description is required.`);
-
-            this.slashCommands.set(slashCommand.name, slashCommand);
-            this.logger.log(`Client SlashCommands Command (/) Loaded: ${slashCommand.name}`, "cmd");
-            data.push(slashCommand);
-        }
-     });
-	  this.on("ready", async () => {
-        await this.application.commands.set(data).then(() => this.logger.log(`Client Application (/) Registered.`, "cmd")).catch((e) => console.log(e));
-    });
 	 }
 		 connect() {
         return super.login(this.token);
