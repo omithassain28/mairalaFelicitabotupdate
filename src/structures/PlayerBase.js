@@ -1,17 +1,15 @@
-const { MessageEmbed } = require("discord.js");
-const { Manager } = require("erela.js");
+const { Message } = require("discord.js");
+const { Structure } = require("erela.js");
 
-// Updated system from a Discord music bot by SudhanPlayz
-
-Manager.extend(
+Structure.extend(
   "Player",
   (Player) =>
     class extends Player {
       /**
-       * Sets the currently playing message for future deletion
-       * @param {MessageEmbed} message
+       * Sets now playing message for deleting next time
+       * @param {Message} message
        */
-      setNowPlayingMessage(message) {
+      setNowplayingMessage(message) {
         if (this.nowPlayingMessage && !this.nowPlayingMessage.deleted)
           this.nowPlayingMessage.delete();
         return (this.nowPlayingMessage = message);
