@@ -24,28 +24,28 @@ module.exports = async (client, player, track, payload) => {
     .setColor(client.embedColor)
     .setTimestamp();
   const But1 = new MessageButton()
-    .setEmoji("<:vdown:1213034736654753843>")
+    .setEmoji("<:volumedown:1213055987569918003>")
     .setCustomId("vdown")
     .setStyle("SECONDARY");
 
   const But2 = new MessageButton()
-    .setEmoji("<:online:1210253399031812147>")
+    .setEmoji("<:stop:1213055607481827368>")
     .setCustomId("stop")
     .setStyle("SECONDARY");
 
   const But3 = new MessageButton()
     .setCustomId("pause")
-    .setEmoji("<:online:1210253399031812147>")
+    .setEmoji("<:pause:1213055670689992784>")
     .setStyle("SECONDARY");
 
   const But4 = new MessageButton()
     .setCustomId("skip")
-    .setEmoji("<:online:1210253399031812147>")
+    .setEmoji("<:skip:1213055623218860032>")
     .setStyle("SECONDARY");
 
   const But5 = new MessageButton()
     .setCustomId("vup")
-    .setEmoji("<:online:1210253399031812147>")
+    .setEmoji("<:volumeup:1213055997590110268>")
     .setStyle("SECONDARY");
 
   const row = new MessageActionRow().addComponents(
