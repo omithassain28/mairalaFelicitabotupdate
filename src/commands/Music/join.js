@@ -14,11 +14,11 @@ module.exports = {
   sameVoiceChannel: false,
   execute: async (message, args, client, prefix) => {
 
-    if (!message.guild.me.permissions.has([Permissions.FLAGS.CONNECT, Permissions.FLAGS.SPEAK])) return message.channel.send({embeds: [new MessageEmbed().setColor(client.embedColor).setDescription(`<:online:1210253399031812147> | I don't have enough permissions to execute this command! please give me permission \`CONNECT\` or \`SPEAK\`.`)]});
+    if (!message.guild.me.permissions.has([Permissions.FLAGS.CONNECT, Permissions.FLAGS.SPEAK])) return message.channel.send({embeds: [new MessageEmbed().setColor(client.embedColor).setDescription(`<:online:1210253399031812147> | I don't have enough permissions to execute this command! please give me permission \`CONNECT\` or \`SPEAK\`.`]});
     
     const { channel } = message.member.voice;
    
-    if (!message.guild.me.permissionsIn(channel).has([Permissions.FLAGS.CONNECT, Permissions.FLAGS.SPEAK])) return message.channel.send({embeds: [new MessageEmbed().setColor(client.embedColor).setDescription(`<:online:1210253399031812147> | I don't have enough permissions connect your vc please give me permission \`CONNECT\` or \`SPEAK\`.`)]});
+    if (!message.guild.me.permissionsIn(channel).has([Permissions.FLAGS.CONNECT, Permissions.FLAGS.SPEAK])) return message.channel.send({embeds: [new MessageEmbed().setColor(client.embedColor).setDescription(`<:online:1210253399031812147> | I don't have enough permissions connect your vc please give me permission \`CONNECT\` or \`SPEAK\`.`)});
    
     const emojiJoin = message.client.emoji.join;
 
@@ -36,7 +36,7 @@ module.exports = {
 
       let thing = new MessageEmbed()
         .setColor(client.embedColor)
-        .setDescription(`<:online:1210253399031812147> | **Successfully Joined In <#${channel.id}>**`)
+        .setDescription(`<:online:1210253399031812147> | **Successfully Joined In <#${channel.id}>**`);
       return message.reply({ embeds: [thing] });
 
     } else if (message.guild.me.voice.channel !== channel) {
