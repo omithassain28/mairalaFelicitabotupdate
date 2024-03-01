@@ -19,7 +19,7 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("#303037")
-                .setDescription("<:online:1210253399031812147> | There is no music playing.");
+                .setDescription("<:queue:1213063749557297192> | There is no music playing.");
             return message.reply({embeds: [thing]});
         }
 
@@ -30,7 +30,7 @@ module.exports = {
 		let thing = new MessageEmbed()
 			.setColor(message.client.embedColor)
 			
-			.setDescription(`<:online:1210253399031812147> | Successfully Removed all songs from the queue`)
+			.setDescription(`<:queue:1213063749557297192> | Successfully Removed all songs from the queue`)
 			  return message.reply({embeds: [thing]});
     }
 };
