@@ -21,7 +21,7 @@ module.exports = {
 
     if (!player.queue.current)
       return message.reply({
-        content: `<:online:1210253399031812147> | Please play a song before using this command.`,
+        content: `<:autoplay:1213063170512519200> | Please play a song before using this command.`,
       });
     
     
@@ -31,7 +31,7 @@ module.exports = {
       let thing = new MessageEmbed()
         .setColor(client.embedColor)
       
-        .setDescription(`<:online:1210253399031812147> | Disabled autoplay.`);
+        .setDescription(`<:autoplay:1213063170512519200> | Disabled autoplay.`);
       return message.channel.send({ embeds: [thing] });
     } else {
       const identifier = player.queue.current.identifier;
@@ -46,7 +46,7 @@ module.exports = {
       let thing = new MessageEmbed()
         .setColor(client.embedColor)
         
-        .setDescription(`<:online:1210253399031812147> | Successfully enabled autoplay.`);
+        .setDescription(`<:autoplay:1213063170512519200> | Successfully enabled autoplay.`);
 
       return message.channel.send({ embeds: [thing] });
     }
