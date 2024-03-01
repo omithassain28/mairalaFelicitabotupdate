@@ -24,7 +24,7 @@ module.exports = async (client, player, track, payload) => {
     .setColor(client.embedColor)
     .setTimestamp();
   const But1 = new MessageButton()
-    .setEmoji("<:online:1210253399031812147>")
+    .setEmoji("<:vdown:1213034736654753843>")
     .setCustomId("vdown")
     .setStyle("SECONDARY");
 
