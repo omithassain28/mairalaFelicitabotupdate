@@ -1,16 +1,15 @@
-const {
-  Client,
-  Message,
-  MessageEmbed,
-  MessageActionRow,
-  MessageButton,
-  Permissions,
-} = require("discord.js");
+// Import necessary modules
+const { Client, Message, MessageEmbed } = require("discord.js");
+const { Permissions } = require("discord.js");
 
+// Import required modules from schema and utils
 const db = require("../../schema/prefix.js");
 const i18n = require("../../utils/i18n");
+
+// Define the owner
 const owner = ["823101214564417536"];
 
+// Define the function for message creation
 module.exports = {
   name: "messageCreate",
   run: async (client, message) => {
@@ -18,7 +17,7 @@ module.exports = {
     if (!message.guild) return;
     let prefix = client.prefix;
 
-    const channel = message?.channel;
+    const channel = message.channel;
     const ress = await db.findOne({ Guild: message.guildId });
     if (ress && ress.Prefix) prefix = ress.Prefix;
 
@@ -37,13 +36,7 @@ module.exports = {
       const embed = new MessageEmbed()
         .setColor(client.embedColor)
         .setFooter(`For Using Me <$`, message.guild.iconURL({ dynamic: true }))
-
-        .setDescription(
-          `**My Prefix Is ${prefix} Type ${prefix}help To Get My Command**`,
-          {
-            Pre: prefix,
-          },
-        );
+        .setDescription(`**My Prefix Is ${prefix} Type ${prefix}help To Get My Command**`);
       message.channel.send({ embeds: [embed] });
     }
     let np = [];
@@ -77,7 +70,7 @@ module.exports = {
     const command =
       client.commands.get(commandName) ||
       client.commands.find(
-        (cmd) => cmd.aliases && cmd.aliases.includes(commandName),
+        (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
       );
 
     if (!command) return;
@@ -86,7 +79,7 @@ module.exports = {
       if (!vote) {
         let embed = new MessageEmbed()
           .setDescription(
-            `<:online:1210253399031812147> | **This Is A Vote Required Command So Vote Us Now By [Clicking Here](https://top.gg/bot/${client.user.id}/vote)**`,
+            `<:online:1210253399031812147> | **This Is A Vote Required Command So Vote Us Now By [Clicking Here](https://top.gg/bot/${client.user.id}/vote)**`
           )
           .setColor(client.embedColor);
         return message.channel.send({ embeds: [embed] });
@@ -97,10 +90,9 @@ module.exports = {
         .send({
           content: `${i18n.__mf("events.msgcrt.embed2", {
             channelId: message.channel.id,
-            cmdname: command.name,
-          })}`,
-        })
-        .catch(() => {});
+            cmdname: command.name
+          })}`
+        }).catch(() => {});
 
     if (!message.guild.me.permissions.has(Permissions.FLAGS.VIEW_CHANNEL))
       return;
@@ -109,22 +101,18 @@ module.exports = {
       return await message.channel
         .send({
           content: `${i18n.__mf("events.msgcrt.embed3", {
-            cmdname: command.name,
-          })}`,
+            cmdname: command.name
+          })}`
         })
         .catch(() => {});
 
     const embed = new MessageEmbed().setColor("2f3136");
 
-    // args: true,
     if (command.args && !args.length) {
       let reply = `${i18n.__("events.msgcrt.embed4")}`;
-
-      // usage: '',
       if (command.usage) {
         reply += `\n\`${prefix}${command.name} ${command.usage}\``;
       }
-
       embed.setDescription(reply);
       return message.channel.send({ embeds: [embed] });
     }
@@ -137,8 +125,7 @@ module.exports = {
       return message.channel.send({ embeds: [embed] });
     }
     if (
-      !channel
-        .permissionsFor(message.guild.me)
+      !channel.permissionsFor(message.guild.me)
         ?.has(Permissions.FLAGS.EMBED_LINKS) &&
       client.user.id !== userId
     ) {
@@ -147,7 +134,7 @@ module.exports = {
     if (command.owner) {
       if (!owner.includes(message.author.id)) {
         embed.setDescription(
-          "<:online:1210253399031812147> | Only My Developers Can Use This Command",
+          "<:online:1210253399031812147> | Only My Developers Can Use This Command"
         );
         return message.channel.send({ embeds: [embed] });
       }
@@ -170,7 +157,7 @@ module.exports = {
           message.guild.me.voice.channelId !== message.member.voice.channelId
         ) {
           embed.setDescription(
-            `${i18n.__("player.samevc")} ${message.guild.me.voice.channel}!`,
+            `${i18n.__("player.samevc")} ${message.guild.me.voice.channel}!`
           );
           return message.channel.send({ embeds: [embed] });
         }
@@ -184,5 +171,5 @@ module.exports = {
       embed.setDescription(i18n.__("player.cmderr"));
       return message.channel.send({ embeds: [embed] });
     }
-  },
+  }
 };
