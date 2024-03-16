@@ -14,7 +14,7 @@ module.exports = {
   nodes: [
     {
       host: process.env.NODE_HOST || "node1.paradisehost.xyz:27221",
-      identifer: process.env.NODE_ID || "Main",
+      identifer: process.env.NODE_ID || "NI",
 
       port: parseInt(process.env.NODE_PORT || "27221"),
       password: process.env.NODE_PASSWORD || "youshallnotpass",
