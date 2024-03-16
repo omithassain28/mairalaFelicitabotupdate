@@ -13,11 +13,11 @@ module.exports = {
   langs: process.env.LANGS || "en",
   nodes: [
     {
-      host: process.env.NODE_HOST || "0.0.0.0",
+      host: process.env.NODE_HOST || "lavalink.jirayu.pw",
       identifer: process.env.NODE_ID || "lavalink",
 
       port: parseInt(process.env.NODE_PORT || "2333"),
-      password: process.env.NODE_PASSWORD || "omit6666",
+      password: process.env.NODE_PASSWORD || "youshallnotpass",
       secure: parseBoolean(process.env.NODE_SECURE || "false"),
     },
   ],
