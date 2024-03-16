@@ -13,8 +13,8 @@ module.exports = {
   langs: process.env.LANGS || "en",
   nodes: [
     {
-      host: process.env.NODE_HOST || "node1.paradisehost.xyz:27221",
-      identifer: process.env.NODE_ID || "NI",
+      host: process.env.NODE_HOST || "node1.paradisehost.xyz",
+      identifer: process.env.NODE_ID || "lavalink",
 
       port: parseInt(process.env.NODE_PORT || "27221"),
       password: process.env.NODE_PASSWORD || "youshallnotpass",
