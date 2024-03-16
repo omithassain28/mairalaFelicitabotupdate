@@ -14,7 +14,7 @@ module.exports = {
   nodes: [
     {
       host: process.env.NODE_HOST || "lavalink.jirayu.pw",
-      identifer: process.env.NODE_ID || "lavalink",
+      
 
       port: parseInt(process.env.NODE_PORT || "2333"),
       password: process.env.NODE_PASSWORD || "youshallnotpass",
